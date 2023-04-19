@@ -4,7 +4,7 @@ The Chore Service provides access to the Choreschema model and its associated da
 const choreModel = require('../models/Chore');
 
 /* Runs mongoose function to get all chore records from the database */
-async function getAllUsers() {
+async function getAllChores() {
     var chores = await choreModel.find(function (err, docs) {
         if (err) {
             throw err;
@@ -12,7 +12,7 @@ async function getAllUsers() {
             if (docs) {
                 console.log('Found all chores.');
             } else {
-                console.log('No records found.')
+                console.log('No chores found.')
             }
         }
     }).clone();
@@ -21,8 +21,8 @@ async function getAllUsers() {
 }
 
 /* Runs mongoose function to find a specific chore*/
-async function getUser(userId) {
-    var record = await choreModel.findOne({ staff_name: id }, function (err, doc) {
+async function getChore(id) {
+    var record = await choreModel.findOne({ choreId: id }, function (err, doc) {
         if (err) {
             throw err;
         } else {
@@ -37,15 +37,15 @@ async function getUser(userId) {
     return record;
 }
 
-/* Runs mongoose function to add an entire record to the database */
-async function addUser(body) {
-    var record = new IPSLogModel(body);
-    var status = await IPSLogModel.findOne(body, function (err, doc) {
+/* Runs mongoose function to add a new chore to the database */
+async function addChore(body) {
+    var record = new choreModel(body);
+    var status = await choreModel.findOne(body, function (err, doc) {
         if (err) {
             throw err;
         } else {
             if (doc) {
-                console.log('Record already exists.');
+                console.log('Chore already exists.');
             } else {
                 record.save(function (err, doc) {
                     if (err) {
@@ -61,16 +61,16 @@ async function addUser(body) {
     return status;
 }
 
-/* Runs mongoose function that finds a record by an ID and updates it with whatever input */
-async function updateUser(id, body) {
-    var status = await IPSLogModel.findOneAndUpdate({ staff_name: id }, body, function (err, doc) {
+/* Runs mongoose function that finds a chore by an ID and updates it with whatever input */
+async function updateChore(id, body) {
+    var status = await choreModel.findOneAndUpdate({ choreId: id }, body, function (err, doc) {
         if (err) {
             throw err;
         } else {
             if (doc) {
-                console.log('Sucessfully updated the record to: ' + doc);
+                console.log('Sucessfully updated the chore to: ' + doc);
             } else {
-                console.log('No record found to update.');
+                console.log('No chore found to update.');
             }
         }
     }).clone();
@@ -78,11 +78,11 @@ async function updateUser(id, body) {
     return status;
 }
 
-/* Runs mongoose function to find a record by an ID and delete it */
-async function deleteUser(id) {
-    var status = await IPSLogModel.findOne({ staff_name: id });
+/* Runs mongoose function to find a chore by an ID and delete it */
+async function deleteChore(id) {
+    var status = await choreModel.findOne({ choreId: id });
 
-    await IPSLogModel.findOneAndDelete({ staff_name: id }, function (err, doc) {
+    await choreModel.findOneAndDelete({ choreId: id }, function (err, doc) {
         if (err) {
             throw err;
         } else {
@@ -97,11 +97,10 @@ async function deleteUser(id) {
     return status;
 }
 
-
 module.exports = {
-    getAllUsers,
-    getUser,
-    addUser,
-    updateUser,
-    deleteUser
+    getAllChores,
+    getChore,
+    addChore,
+    updateChore,
+    deleteChore
 };
