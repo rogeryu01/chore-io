@@ -11,9 +11,9 @@ export class ChoreListComponent implements OnInit {
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
-    this.http.get('/api/chores').subscribe((data: any[]) => {
+    /*this.http.get('/api/chores').subscribe((data: any[]) => {
       console.log(data);
-    });
+    });*/
   }
 
 }
