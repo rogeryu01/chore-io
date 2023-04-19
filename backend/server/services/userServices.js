@@ -1,28 +1,30 @@
-/* Chore Service.
+/* User Service. 
 
-The Chore Service provides access to the Choreschema model and its associated database operations.*/
-const choreModel = require('../models/Chore');
+The User Service provides access to the Userschema model and its associated database operations.*/
 
-/* Runs mongoose function to get all chore records from the database */
+const userModel = require('../models/User');
+
+
+/* Runs mongoose function to get all user records from the database */
 async function getAllUsers() {
-    var chores = await choreModel.find(function (err, docs) {
+    var users = await userModel.find(function (err, docs) {
         if (err) {
             throw err;
         } else {
             if (docs) {
-                console.log('Found all chores.');
+                console.log('Found all users.');
             } else {
                 console.log('No records found.')
             }
         }
     }).clone();
 
-    return chores;
+    return users;
 }
 
-/* Runs mongoose function to find a specific chore*/
-async function getUser(userId) {
-    var record = await choreModel.findOne({ staff_name: id }, function (err, doc) {
+/* Runs mongoose function to find a specific user*/
+async function getUser(choreId) {
+    var record = await userModel.findOne({ staff_name: id }, function (err, doc) {
         if (err) {
             throw err;
         } else {
@@ -96,6 +98,7 @@ async function deleteUser(id) {
 
     return status;
 }
+
 
 
 module.exports = {
