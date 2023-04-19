@@ -1,0 +1,3 @@
+/* Chore Service.
+
+The Chore Service provides access to the Choreschema model and its associated database operations.*/
