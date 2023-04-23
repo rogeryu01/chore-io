@@ -23,7 +23,7 @@ async function getAllUsers() {
 }
 
 /* Runs mongoose function to find a specific user*/
-async function getUser(choreId) {
+async function getUser(id) {
     var record = await userModel.findOne({ staff_name: id }, function (err, doc) {
         if (err) {
             throw err;
