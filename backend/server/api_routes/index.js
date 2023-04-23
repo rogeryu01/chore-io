@@ -2,45 +2,29 @@ const express = require('express');
 const router = express.Router();
 
 /* Controllers */
+const choreController = require("../controllers/choreController");
+const userController = require("../controllers/userController");
+
 
 /* Home Page */
-
-/* Person Level Routes */
-
-// Get record
-
-// Add record
-
-// Update record
-
-// Delete record
-
+router.get('/', (req, res) => {
+    res.send('Hello World!');
+    console.log("testing if this will work");
+})
 
 /* User Routes */
+router.get('/user', userController.getAllUsers);
+router.get('/user/:id', userController.getUser);
+router.post('/user', userController.addUser);
+router.patch('/user/:id', userController.updateUser);
+router.delete('/user/:id', userController.deleteUser);
 
 /* Chore Routes */
+router.get('/chore', choreController.getAllChores);
+router.get('/chore/:id', choreController.getChore);
+router.post('/chore', choreController.addChore);
+router.patch('/chore/:id', choreController.updateChore);
+router.delete('/chore/:id', choreController.deleteChore);
 
-/*app.get('/api/chores', async (req, res) => {
-    try {
-        const chores = await Chore.find();
-        res.json(chores);
-    } catch (err) {
-        res.status(500).json({ message: err.message });
-    }
-});
 
-app.post('/api/chores', async (req, res) => {
-    const chore = new Chore({
-        name: req.body.name,
-        assignedTo: req.body.assignedTo,
-        dueDate: req.body.dueDate
-    });
-
-    try {
-        const newChore = await chore.save();
-        res.status(201).json(newChore);
-    } catch (err) {
-        res.status(400).json({ message: err.message });
-    }
-});*/
-
+module.exports = router;
