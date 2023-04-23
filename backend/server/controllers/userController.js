@@ -1,4 +1,4 @@
-const userServices = require('../services/userServices');
+import userServices from '../services/userServices';
 
 /* Get all controller to retrieve all records. Result variable checks for success. */
 async function getAllUsers(req, res) {
@@ -37,13 +37,13 @@ async function addUser(req, res) {
     try {
         var status = await userServices.addUser(body);
         if (status) {
-            res.status(200).json({ success: true, msg: 'Record already exists.' });
+            res.status(200).json({ success: true, msg: 'User already exists.' });
         } else {
-            res.status(200).json({ success: true, msg: 'Record added.' });
+            res.status(200).json({ success: true, msg: 'User added.' });
         }
     } catch (e) {
         console.log(e.message);
-        res.status(500).json({ success: false, msg: 'Failed to add record.' });
+        res.status(500).json({ success: false, msg: 'Failed to add user.' });
     }
 }
 
@@ -82,7 +82,7 @@ async function deleteUser(req, res) {
 }
 
 
-module.exports = {
+export default {
     getAllUsers,
     getUser,
     addUser,

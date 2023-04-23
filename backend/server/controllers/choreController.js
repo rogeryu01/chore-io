@@ -1,4 +1,4 @@
-const choreServices = require('../services/choreServices');
+import choreServices from '../services/choreServices';
 
 /* Get all controller to retrieve all chores. Result variable checks for success. */
 async function getAllChores(req, res) {
@@ -81,7 +81,7 @@ async function deleteChore(req, res) {
     }
 }
 
-module.exports = {
+export default {
     getAllChores,
     getChore,
     addChore,

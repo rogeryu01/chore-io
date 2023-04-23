@@ -2,12 +2,12 @@
 
 The User Service provides access to the Userschema model and its associated database operations.*/
 
-const userModel = require('../models/User');
+import userModel, { find, findOne, findOneAndUpdate, findOneAndDelete } from '../models/User';
 
 
 /* Runs mongoose function to get all user records from the database */
 async function getAllUsers() {
-    var users = await userModel.find(function (err, docs) {
+    var users = await find(function (err, docs) {
         if (err) {
             throw err;
         } else {
@@ -24,7 +24,7 @@ async function getAllUsers() {
 
 /* Runs mongoose function to find a specific user*/
 async function getUser(id) {
-    var record = await userModel.findOne({ staff_name: id }, function (err, doc) {
+    var record = await findOne({ staff_name: id }, function (err, doc) {
         if (err) {
             throw err;
         } else {
@@ -42,12 +42,12 @@ async function getUser(id) {
 /* Runs mongoose function to add an entire record to the database */
 async function addUser(body) {
     var record = new userModel(body);
-    var status = await userModel.findOne(body, function (err, doc) {
+    var status = await findOne(body, function (err, doc) {
         if (err) {
             throw err;
         } else {
             if (doc) {
-                console.log('Record already exists.');
+                console.log('User already exists.');
             } else {
                 record.save(function (err, doc) {
                     if (err) {
@@ -65,7 +65,7 @@ async function addUser(body) {
 
 /* Runs mongoose function that finds a record by an ID and updates it with whatever input */
 async function updateUser(id, body) {
-    var status = await userModel.findOneAndUpdate({ staff_name: id }, body, function (err, doc) {
+    var status = await findOneAndUpdate({ staff_name: id }, body, function (err, doc) {
         if (err) {
             throw err;
         } else {
@@ -82,9 +82,9 @@ async function updateUser(id, body) {
 
 /* Runs mongoose function to find a record by an ID and delete it */
 async function deleteUser(id) {
-    var status = await userModel.findOne({ staff_name: id });
+    var status = await findOne({ staff_name: id });
 
-    await userModel.findOneAndDelete({ staff_name: id }, function (err, doc) {
+    await findOneAndDelete({ staff_name: id }, function (err, doc) {
         if (err) {
             throw err;
         } else {
@@ -101,7 +101,7 @@ async function deleteUser(id) {
 
 
 
-module.exports = {
+export default {
     getAllUsers,
     getUser,
     addUser,

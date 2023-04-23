@@ -6,7 +6,7 @@ const routes = require("./api_routes/index");
 
 /* Creating an express app on port 8080 */
 const app = express();
-const port = 3000;
+const port = 8080;
 
 /* Initalizing cors */
 var corsOptions = {
