@@ -41,8 +41,8 @@ async function getUser(id) {
 
 /* Runs mongoose function to add an entire record to the database */
 async function addUser(body) {
-    var record = new IPSLogModel(body);
-    var status = await IPSLogModel.findOne(body, function (err, doc) {
+    var record = new userModel(body);
+    var status = await userModel.findOne(body, function (err, doc) {
         if (err) {
             throw err;
         } else {
@@ -65,7 +65,7 @@ async function addUser(body) {
 
 /* Runs mongoose function that finds a record by an ID and updates it with whatever input */
 async function updateUser(id, body) {
-    var status = await IPSLogModel.findOneAndUpdate({ staff_name: id }, body, function (err, doc) {
+    var status = await userModel.findOneAndUpdate({ staff_name: id }, body, function (err, doc) {
         if (err) {
             throw err;
         } else {
@@ -82,9 +82,9 @@ async function updateUser(id, body) {
 
 /* Runs mongoose function to find a record by an ID and delete it */
 async function deleteUser(id) {
-    var status = await IPSLogModel.findOne({ staff_name: id });
+    var status = await userModel.findOne({ staff_name: id });
 
-    await IPSLogModel.findOneAndDelete({ staff_name: id }, function (err, doc) {
+    await userModel.findOneAndDelete({ staff_name: id }, function (err, doc) {
         if (err) {
             throw err;
         } else {

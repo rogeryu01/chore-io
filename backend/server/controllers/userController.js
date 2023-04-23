@@ -1,9 +1,9 @@
-const user = require('../services/userServices');
+const userServices = require('../services/userServices');
 
 /* Get all controller to retrieve all records. Result variable checks for success. */
 async function getAllUsers(req, res) {
     try {
-        var result = await personLevelServices.getAllUsers();
+        var result = await userServices.getAllUsers();
         if (result) {
             res.status(200).jsonp(result);
         } else {
@@ -19,7 +19,7 @@ async function getAllUsers(req, res) {
 async function getUser(req, res) {
     var id = req.params.id;
     try {
-        var result = await personLevelServices.getUser(id);
+        var result = await userServices.getUser(id);
         if (result) {
             res.status(200).jsonp(result);
         } else {
@@ -35,7 +35,7 @@ async function getUser(req, res) {
 async function addUser(req, res) {
     var body = req.body;
     try {
-        var status = await personLevelServices.addUser(body);
+        var status = await userServices.addUser(body);
         if (status) {
             res.status(200).json({ success: true, msg: 'Record already exists.' });
         } else {
@@ -53,7 +53,7 @@ async function updateUser(req, res) {
     var body = req.body;
 
     try {
-        var status = await personLevelServices.updateUser(id, body);
+        var status = await userServices.updateUser(id, body);
         if (status) {
             res.status(200).json({ success: true, msg: 'Successfully updated the record.' });
         } else {
@@ -69,7 +69,7 @@ async function updateUser(req, res) {
 async function deleteUser(req, res) {
     var id = req.params.id;
     try {
-        var status = await personLevelServices.deleteUser(id);
+        var status = await userServices.deleteUser(id);
         if (status) {
             res.status(200).json({ success: true, msg: 'Record deleted.' });
         } else {
