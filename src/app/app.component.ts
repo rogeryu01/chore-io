@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { CalendarEvent, CalendarView } from 'angular-calendar';
+import { startOfDay } from 'date-fns';
 
 interface Chore {
   name: string;
@@ -11,6 +13,33 @@ interface Chore {
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
+  viewDate: Date = new Date(); 
+  view: CalendarView = CalendarView.Week;
+  CalendarView = CalendarView;
+
+
+  events: CalendarEvent[] = [
+    {
+      start: startOfDay(new Date()),
+      title: 'Cleaning the car',
+    }
+  ]
+  //assume data from db
+//example: Hospital appointment info
+//let data=fromdb();
+//for(let x of data)
+//{
+//this.events = [
+//          ...this.events,
+ //         {
+	//start:x["appointment_date"],
+//	title:x["patient_name"]+x["medical_problem"]
+// 	 }
+//	]
+//}
+
+
   newChoreName = '';
   newChoreDescription = '';
   newChorePerson ='';
