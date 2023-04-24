@@ -1,103 +1,87 @@
 /* Chore Service.
 
 The Chore Service provides access to the Choreschema model and its associated database operations.*/
-import choreModel, { find, findOne, findOneAndUpdate, findOneAndDelete } from '../models/Chore';
+const choreModel = require('../models/Chore');
 
 /* Runs mongoose function to get all chore records from the database */
 async function getAllChores() {
-    var chores = await find(function (err, docs) {
-        if (err) {
-            throw err;
+    try {
+        var chores = await choreModel.find()
+        if (chores) {
+            console.log('Found all chores');
         } else {
-            if (docs) {
-                console.log('Found all chores.');
-            } else {
-                console.log('No chores found.')
-            }
+            console.log('No chores found');
         }
-    }).clone();
-
+    } catch (error) {
+        console.log(error);
+    }
     return chores;
 }
 
 /* Runs mongoose function to find a specific chore*/
 async function getChore(id) {
-    var record = await findOne({ choreId: id }, function (err, doc) {
-        if (err) {
-            throw err;
+    try {
+        var chore = await choreModel.findOne({ choreId: id })
+        if (chore) {
+            console.log('Found ' + chore);
         } else {
-            if (doc) {
-                console.log('Found ' + doc);
-            } else {
-                console.log('Could not find record with staff_name: ' + id);
-            }
+            console.log('Could not find chore with id: ' + id);
         }
-    }).clone();
-
-    return record;
+    } catch (error) {
+        console.log(error);
+    }
+    return chore;
 }
 
 /* Runs mongoose function to add a new chore to the database */
 async function addChore(body) {
-    var record = new choreModel(body);
-    var status = await findOne(body, function (err, doc) {
-        if (err) {
-            throw err;
+    var chore = new choreModel(body);
+    try {
+        var status = await choreModel.findOne(body)
+        if (status) {
+            console.log('User is already in database');
         } else {
-            if (doc) {
-                console.log('Chore already exists.');
-            } else {
-                record.save(function (err, doc) {
-                    if (err) {
-                        throw err;
-                    } else {
-                        console.log('Added ' + doc);
-                    }
-                });
-            }
+            chore.save()
+            console.log('User has been successfully added');
         }
-    }).clone();
-
+    } catch (error) {
+        console.log(error);
+    }
     return status;
 }
 
 /* Runs mongoose function that finds a chore by an ID and updates it with whatever input */
 async function updateChore(id, body) {
-    var status = await findOneAndUpdate({ choreId: id }, body, function (err, doc) {
-        if (err) {
-            throw err;
+    try {
+        var status = await choreModel.findOneAndUpdate({ choreId: id }, body)
+        if (status) {
+            console.log('Successfully updated the chore to ' + body);
         } else {
-            if (doc) {
-                console.log('Sucessfully updated the chore to: ' + doc);
-            } else {
-                console.log('No chore found to update.');
-            }
+            console.log('No chore found to update. ')
         }
-    }).clone();
-
+    } catch (error) {
+        console.log(error)
+    }
     return status;
 }
 
 /* Runs mongoose function to find a chore by an ID and delete it */
 async function deleteChore(id) {
-    var status = await findOne({ choreId: id });
-
-    await findOneAndDelete({ choreId: id }, function (err, doc) {
-        if (err) {
-            throw err;
+    var chore = this.getChore(id);
+    try {
+        var status = await choreModel.findOneAndDelete({ choreId: id })
+        if (status) {
+            console.log('Successfully deleted chore')
         } else {
-            if (doc) {
-                console.log('Sucessfully deleted record :' + doc);
-            } else {
-                console.log('No record found to delete.');
-            }
+            console.log('No chore found to delete')
         }
-    }).clone();
-
+    } catch (error) {
+        console.log(error)
+    }
     return status;
 }
 
-export default {
+module.exports = {
     getAllChores,
     getChore,
     addChore,

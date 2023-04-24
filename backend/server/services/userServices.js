@@ -2,106 +2,90 @@
 
 The User Service provides access to the Userschema model and its associated database operations.*/
 
-import userModel, { find, findOne, findOneAndUpdate, findOneAndDelete } from '../models/User';
+const userModel = require('../models/User');
 
 
 /* Runs mongoose function to get all user records from the database */
 async function getAllUsers() {
-    var users = await find(function (err, docs) {
-        if (err) {
-            throw err;
+    try {
+        var users = await userModel.find()
+        if (users) {
+            console.log('Found all users');
         } else {
-            if (docs) {
-                console.log('Found all users.');
-            } else {
-                console.log('No records found.')
-            }
+            console.log('No users found');
         }
-    }).clone();
-
+    } catch (error) {
+        console.log(error);
+    }
     return users;
 }
 
 /* Runs mongoose function to find a specific user*/
 async function getUser(id) {
-    var record = await findOne({ staff_name: id }, function (err, doc) {
-        if (err) {
-            throw err;
+    try {
+        var user = await userModel.findOne({ userId: id })
+        if (user) {
+            console.log('Found ' + user);
         } else {
-            if (doc) {
-                console.log('Found ' + doc);
-            } else {
-                console.log('Could not find record with staff_name: ' + id);
-            }
+            console.log('Could not find user with id: ' + id);
         }
-    }).clone();
-
-    return record;
+    } catch (error) {
+        console.log(error);
+    }
+    return user;
 }
 
-/* Runs mongoose function to add an entire record to the database */
+/* Runs mongoose function to add a new user to the database */
 async function addUser(body) {
-    var record = new userModel(body);
-    var status = await findOne(body, function (err, doc) {
-        if (err) {
-            throw err;
+    var user = new userModel(body);
+    try {
+        var status = await userModel.findOne(body)
+        if (status) {
+            console.log('User is already in database');
         } else {
-            if (doc) {
-                console.log('User already exists.');
-            } else {
-                record.save(function (err, doc) {
-                    if (err) {
-                        throw err;
-                    } else {
-                        console.log('Added ' + doc);
-                    }
-                });
-            }
+            user.save()
+            console.log('User has been successfully added');
         }
-    }).clone();
-
+    } catch (error) {
+        console.log(error);
+    }
     return status;
 }
 
-/* Runs mongoose function that finds a record by an ID and updates it with whatever input */
+/* Runs mongoose function that finds a user by an ID and updates it with whatever input */
 async function updateUser(id, body) {
-    var status = await findOneAndUpdate({ staff_name: id }, body, function (err, doc) {
-        if (err) {
-            throw err;
+    try {
+        var status = await userModel.findOneAndUpdate({ userId: id }, body)
+        if (status) {
+            console.log('Successfully updated the user to ' + body);
         } else {
-            if (doc) {
-                console.log('Sucessfully updated the record to: ' + doc);
-            } else {
-                console.log('No record found to update.');
-            }
+            console.log('No user found to update. ')
         }
-    }).clone();
-
+    } catch (error) {
+        console.log(error)
+    }
     return status;
 }
 
 /* Runs mongoose function to find a record by an ID and delete it */
 async function deleteUser(id) {
-    var status = await findOne({ staff_name: id });
-
-    await findOneAndDelete({ staff_name: id }, function (err, doc) {
-        if (err) {
-            throw err;
+    var user = this.getUser(id);
+    try {
+        var status = await userModel.findOneAndDelete({ userId: id })
+        if (status) {
+            console.log('Successfully deleted user')
         } else {
-            if (doc) {
-                console.log('Sucessfully deleted record :' + doc);
-            } else {
-                console.log('No record found to delete.');
-            }
+            console.log('No user found to delete')
         }
-    }).clone();
-
+    } catch (error) {
+        console.log(error)
+    }
     return status;
 }
 
 
 
-export default {
+module.exports = {
     getAllUsers,
     getUser,
     addUser,

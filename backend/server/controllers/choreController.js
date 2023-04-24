@@ -1,4 +1,4 @@
-import choreServices from '../services/choreServices';
+const choreServices = require('../services/choreServices');
 
 /* Get all controller to retrieve all chores. Result variable checks for success. */
 async function getAllChores(req, res) {
@@ -15,7 +15,7 @@ async function getAllChores(req, res) {
     }
 }
 
-/* Get specific record controller to retrieve a chore. Result variable checks for success. */
+/* Get specific chore controller to retrieve a chore. Result variable checks for success. */
 async function getChore(req, res) {
     var id = req.params.id;
     try {
@@ -31,7 +31,7 @@ async function getChore(req, res) {
     }
 }
 
-/* Add a record controller to add a chore. Status variable checks for success. */
+/* Add a chore controller to add a chore. Status variable checks for success. */
 async function addChore(req, res) {
     var body = req.body;
     try {
@@ -71,17 +71,17 @@ async function deleteChore(req, res) {
     try {
         var status = await choreServices.deleteChore(id);
         if (status) {
-            res.status(200).json({ success: true, msg: 'Record deleted.' });
+            res.status(200).json({ success: true, msg: 'Chore deleted.' });
         } else {
-            res.status(200).json({ success: true, msg: 'Record not found.' });
+            res.status(200).json({ success: true, msg: 'Chore not found.' });
         }
     } catch (e) {
         console.log(e.message);
-        res.status(500).json({ success: false, msg: 'Failed to delete record.' });
+        res.status(500).json({ success: false, msg: 'Failed to delete chore.' });
     }
 }
 
-export default {
+module.exports = {
     getAllChores,
     getChore,
     addChore,
