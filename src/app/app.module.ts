@@ -11,6 +11,7 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { AppNavComponent } from './navigation/navigation.component';
 import { ChoreListComponent } from './chore-list/chore-list.component';
 import { AppRoutingModule } from './app-routing.module';
+import { CreateChoreComponent } from './create-chore/create-chore.component';
 //import { AppNavComponent} from './app-nav/app-nav.component';
 
 
@@ -21,6 +22,7 @@ import { AppRoutingModule } from './app-routing.module';
     CalendarComponent,
     //NavigationComponent,
     ChoreListComponent,
+    CreateChoreComponent,
   ],
   imports: [
     BrowserModule,
