@@ -10,15 +10,11 @@ import { HttpClient } from '@angular/common/http';
 
 export class ChoreListComponent implements OnInit {
 
-  public static Route = {
-    path: '',
-    component: ChoreListComponent
-  }
+  // public static Route = {
+  //   path: '',
+  //   component: ChoreListComponent
+  // }
 
-    /**
-   * Constructor the the  component
-   * @param formBuilder - Builder object to use for creating the create form
-   */
 
   constructor(private http: HttpClient) { }
 

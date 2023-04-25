@@ -4,16 +4,17 @@ import { Observable } from 'rxjs';
 
 
 export interface Chore {
+  choreId: number | null;
   name: string;
-  createdBy: string;
+  //createdBy: string;
   assignedTo: string;
-  completionStatus: string;
-  accepted: boolean;
-  choreId: number;
-  assignedDate: Date;
-  dueDate: Date;
+  dueDate: Date | string;
+ //accepted: boolean;
+  //assignedDate: Date;
   repeatFor: string;
-  points: number;
+  status: string;
+  points: number | string;
+  
 }
 
 

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -12,6 +12,8 @@ import { AppNavComponent } from './navigation/navigation.component';
 import { ChoreListComponent } from './chore-list/chore-list.component';
 import { AppRoutingModule } from './app-routing.module';
 import { CreateChoreComponent } from './create-chore/create-chore.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { ViewChoresComponent } from './view-chores/view-chores.component';
 //import { AppNavComponent} from './app-nav/app-nav.component';
 
 
@@ -23,11 +25,15 @@ import { CreateChoreComponent } from './create-chore/create-chore.component';
     //NavigationComponent,
     ChoreListComponent,
     CreateChoreComponent,
+    ViewChoresComponent,
+    
   ],
   imports: [
     BrowserModule,
     NgbModule,
     FormsModule,
+    MatFormFieldModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
     CalendarModule.forRoot({

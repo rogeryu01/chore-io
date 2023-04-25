@@ -1,0 +1,10 @@
+
+<h1>All Chores</h1>
+
+<table>
+    <tbody>
+        <tr *ngFor="let chore of chores$ | async">
+            <td style="font-size: 25px;">{{chore.name}}</td>
+        </tr>
+    </tbody>
+</table>
