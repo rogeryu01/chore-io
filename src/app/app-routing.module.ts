@@ -7,7 +7,7 @@ import { ViewChoresComponent } from './view-chores/view-chores.component';
 
 const routes: Routes = [
   { path: 'view', component: ViewChoresComponent },
-  { path: 'create', component: CreateChoreComponent },
+  { path: '', component: CreateChoreComponent },
   { path: 'calendar', component: CalendarComponent },
   //{ path: '**', redirectTo: 'calendar' }
 ];

@@ -27,7 +27,7 @@ export class CalendarComponent {
   events: CalendarEvent[] = [
     {
       start: startOfDay(new Date()),
-      title: 'Cleaning the car',
+      title: 'Cleaning the car' ,
     }
   ]
   //assume data from db

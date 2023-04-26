@@ -1,48 +1,52 @@
 
+<h3>Create New Chore</h3>
 
 <form [formGroup]="createChoreForm" (ngSubmit)="onSubmit()">
-    <mat-form-field appearance="fill">
-        <mat-label>Chore Name</mat-label>
-        <input matInput formControlName="name" placeholder="">
-    </mat-form-field>
 
-    <br>
+    <div>
+        <label for="chore_name">
+         Chore Name
+        </label>
+        <input id="chore_name" type="text" formControlName="chore_name">
+      </div>
+    
+      <div>
+        <label for="assigned_to">
+          Assigned To
+        </label>
+        <input id="assigned_to" type="text" formControlName="assigned_to">
+      </div>
 
-    <mat-form-field appearance="fill">
-        <mat-label>Assigned To</mat-label>
-        <input matInput formControlName="assigned_to">
-    </mat-form-field>
+      <div>
+        <label for="due_date">
+         Due Date
+        </label>
+        <input id="due_date" type="date" formControlName="due_date">
+      </div>
 
-    <br>
+      <div>
+        <label for="repeat_for">
+         Repeat For
+        </label>
+        <input id="repeat_for" type="text" formControlName="repeat_for">
+      </div>
 
-    <mat-form-field appearance="fill">
-        <mat-label>Due Date</mat-label>
-        <input matInput formControlName="due_date" type="date">
-    </mat-form-field>
 
-    <br>
-    <mat-form-field appearance="fill">
-        <mat-label>Repeat For</mat-label>
-        <input matInput formControlName="repeat_for">
-    </mat-form-field>
+      <div>
+        <label for="status">
+         Status
+        </label>
+        <input id="status" type="text" formControlName="status">
+      </div>
 
-    <br>
+      <div>
+        <label for="points">
+         Points
+        </label>
+        <input id="points" type="text" formControlName="points">
+      </div>
 
-    <mat-form-field appearance="fill">
-        <mat-label>Status</mat-label>
-        <input matInput formControlName="status">
-    </mat-form-field>
-    <br>
 
-    <mat-form-field appearance="fill">
-        <mat-label>Points</mat-label>
-        <input matInput formControlName="points" >
-    </mat-form-field>
+    <button class="button" type="submit" >Submit Chore</button>
+  </form>
 
-    <br>
-
-    <button type="submit" mat-button extended>
-        Submit
-    </button>
-
-    </form>

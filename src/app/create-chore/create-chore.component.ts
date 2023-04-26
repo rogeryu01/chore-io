@@ -11,11 +11,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 })
 export class CreateChoreComponent {
 
-  public static Route = {
-    path: 'create',
-    component: CreateChoreComponent
-  }
-
   createChoreForm = this.formBuilder.group({
     chore_name: '',
     assigned_to: '',
@@ -87,11 +82,11 @@ export class CreateChoreComponent {
 
   private onSuccess() {
     this.createChoreForm.reset();
-    alert("Submitted");
+    alert("New Chore Created!");
   }
 
-  private onError() {
-    alert("Unknown Error")
-  }
+ private onError() {
+   alert("Unknown Error")
+ }
 
 }
