@@ -9,12 +9,12 @@ export interface Chore {
   //createdBy: string;
   assignedTo: string;
   dueDate: Date | string;
- //accepted: boolean;
-  //assignedDate: Date;
+  //accepted: boolean;
+  assignedDate: Date;
   repeatFor: string;
   status: string;
   points: number | string;
-  
+
 }
 
 

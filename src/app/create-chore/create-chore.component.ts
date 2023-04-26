@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { Chore, ChoreService } from '../chore.service';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 
 @Component({
@@ -22,10 +22,11 @@ export class CreateChoreComponent {
     due_date: '',
     repeat_for: '',
     status: '',
-    points: ''
+    points: '',
+    assignedDate: ''
   });
 
-  constructor(private formBuilder: FormBuilder, private choreService: ChoreService) {}
+  constructor(private formBuilder: FormBuilder, private choreService: ChoreService) { }
 
   onSubmit(): void {
     let chore_info = this.createChoreForm.value;
@@ -61,7 +62,7 @@ export class CreateChoreComponent {
       alert("A chore must have points");
       return;
     }
-    
+
     let chore: Chore =
     {
       choreId: null,
@@ -69,18 +70,19 @@ export class CreateChoreComponent {
       assignedTo: assigned_to,
       dueDate: due_date,
       repeatFor: repeat_for,
+      assignedDate: new Date(),
       status: status,
       points: points
-    
+
     }
 
 
-    this.choreService.createChore(chore).subscribe( 
+    this.choreService.createChore(chore).subscribe(
       {
         next: () => this.onSuccess(),
         error: () => this.onError()
       }
-    );  
+    );
   }
 
   private onSuccess() {
@@ -91,5 +93,5 @@ export class CreateChoreComponent {
   private onError() {
     alert("Unknown Error")
   }
-  
+
 }
