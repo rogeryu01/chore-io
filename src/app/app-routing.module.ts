@@ -13,6 +13,7 @@ const routes: Routes = [
   ViewChoresComponent.Route,
 ];
 
+
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
