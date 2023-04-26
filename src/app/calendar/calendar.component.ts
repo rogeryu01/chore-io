@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CalendarEvent, CalendarView } from 'angular-calendar';
 import { startOfDay } from 'date-fns';
+import { Router } from '@angular/router';
 
 interface Chore {
   name: string;
@@ -16,7 +17,7 @@ export class CalendarComponent {
 
   public static Route = {
     path: 'calendar',
-    component: CalendarComponent
+    component: CalendarComponent,
   }
   viewDate: Date = new Date(); 
   view: CalendarView = CalendarView.Week;

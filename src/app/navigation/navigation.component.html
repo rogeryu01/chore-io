@@ -1,26 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <title>Nav Bar</title>
-  </head>
-  <body>
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-      <a class="navbar-brand" routerLink="/">Chore Manager</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarCollapse">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/chores">Chores</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/about">About</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-    
+  <style>
+      body {
+          font-family: Verdana, Geneva, Tahoma, sans-serif, serif;
+      }
+  
+      .top-box h1 {
+          margin: 0;
+      }
+  </style>
+  
+  <body style="background: #0A3A58;">
+      <nav class="navbar navbar-expand navbar-dark bg-dark">
+          <div class="navbar-nav">
+              <a class="nav-item nav-link" routerLink="/"><button mat-raised-button color="primary"><img
+                          src="https://cdn-icons-png.flaticon.com/512/60/60817.png" width="30px"
+                          height="30px"></button></a>
+       <a class="nav-item nav-link" routerLink="/calendar"><button mat-raised-button color="primary"
+                        style="margin-left:50px;">Calendar</button></a>
+   
+          </div>
+      </nav>
   </body>
+  
+  
+  <!-- main content container -->
+  <div class="jumbotron">
+      <div class="container">
+          <div class="row">
+              <div class="col-sm-8 offset-sm-2">
+                  <router-outlet></router-outlet>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  
 </html>
+
+
+<!-- 
+<app-navbar></app-navbar>
+<app-header></app-header>
+<main>
+  <router-outlet></router-outlet>
+</main>
+<app-footer></app-footer>    -->
+
+

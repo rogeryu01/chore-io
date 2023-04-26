@@ -1,8 +1,25 @@
 .navbar {
+  display: flex;
+  justify-content: flex-start; /* Change justify-content to flex-start */
+  align-items: center; /* Change align-items to center */
+  background-color: #0A3A58;
+  height: 80px;
+  padding: 0 20px;
+  color: white;
+}
+
+.navbar-nav {
+  display: flex;
+  align-items: center;
+  margin-right: auto; /* Add margin-right: auto to push buttons to the left */
+}
+
+/* 
+.navbar {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    background-color: navy;
+    align-items: left;
+    background-color: #0A3A58;;
     height: 80px;
     padding: 0 20px;
     color: white;
@@ -10,15 +27,18 @@
   
   .navbar-left {
     display: flex;
-    align-items: center;
+    align-items: left;
   }
   
   .icon {
+    relative: left;
     font-size: 2rem;
     margin-right: 10px;
-  }
+  } */
+
   
-  .navbar-right {
+  
+  /* .navbar-right {
     display: flex;
     list-style: none;
     margin: 0;
@@ -33,5 +53,5 @@
     color: white;
     text-decoration: none;
     font-size: 1.2rem;
-  }
+  } */
   

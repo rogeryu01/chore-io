@@ -9,10 +9,9 @@ import { CalendarComponent } from './calendar/calendar.component';
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { AppNavComponent } from './navigation/navigation.component';
-import { ChoreListComponent } from './chore-list/chore-list.component';
 import { AppRoutingModule } from './app-routing.module';
 import { CreateChoreComponent } from './create-chore/create-chore.component';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { ViewChoresComponent } from './view-chores/view-chores.component';
 //import { AppNavComponent} from './app-nav/app-nav.component';
 
@@ -23,7 +22,6 @@ import { ViewChoresComponent } from './view-chores/view-chores.component';
     AppNavComponent,
     CalendarComponent,
     //NavigationComponent,
-    ChoreListComponent,
     CreateChoreComponent,
     ViewChoresComponent,
     

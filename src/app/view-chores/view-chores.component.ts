@@ -11,12 +11,7 @@ import { Observable } from 'rxjs';
   styleUrls: ['./view-chores.component.css']
 })
 export class ViewChoresComponent {
-
-  public static Route = {
-    path: '',
-    component: ViewChoresComponent
-  }
-
+  
   public chores$: Observable<Chore[]>;
 
   constructor(private choreService: ChoreService, private router: Router) { 
