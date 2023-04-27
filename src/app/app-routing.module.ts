@@ -9,7 +9,6 @@ const routes: Routes = [
   { path: 'view', component: ViewChoresComponent },
   { path: '', component: CreateChoreComponent },
   { path: 'calendar', component: CalendarComponent },
-  //{ path: '**', redirectTo: 'calendar' }
 ];
 
 

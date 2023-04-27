@@ -34,6 +34,17 @@ async function getChore(id) {
 }
 
 /* Runs mongoose function to add a new chore to the database */
+// async function addChore(body) {    
+//     var chore = new choreModel(body);
+//     try {
+//         await chore.save();
+//         console.log('Chore successfully added');
+//         return { success: true };
+//     } catch (error) {
+//         console.log(error);
+//         throw new Error('Failed to add chore');
+//     }
+// }
 async function addChore(body) {
     var chore = new choreModel(body);
     try {

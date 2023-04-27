@@ -25,57 +25,66 @@ export class CreateChoreComponent {
 
   onSubmit(): void {
     let chore_info = this.createChoreForm.value;
-    let chore_name = chore_info.chore_name ?? "";
-    let assigned_to = chore_info.assigned_to ?? "";
-    let due_date = chore_info.due_date ?? "";
-    let repeat_for = chore_info.repeat_for ?? "";
-    let status = chore_info.status ?? "";
-    let points = chore_info.status ?? "";
+    let chore_name = chore_info.chore_name!;
+    let assigned_to = chore_info.assigned_to!;
+    let due_date_str = chore_info.due_date!;
+    let due_date = new Date(due_date_str);
+    let repeat_for = chore_info.repeat_for!;
+    let status = chore_info.status!;
+    let points = parseInt(chore_info.points ?? "0");
 
-    if (chore_name == "") {
-      alert("A chore must have a name");
-      return;
+    let errors = [];
+  
+    if (chore_info.chore_name == "") {
+      errors.push("A chore must have a name");
     }
-    if (assigned_to == "") {
-      alert("A chore must be assigned to someone");
-      return;
+    if (chore_info.assigned_to == "") {
+      errors.push("A chore must be assigned to someone");
     }
-    if (due_date == "") {
-      alert("A chore must have a due date");
-      return;
+    if (chore_info.due_date == "") {
+      errors.push("A chore must have a due date");
     }
-    if (repeat_for == "") {
-      alert("A chore must have a repeat for");
-      return;
+    if (chore_info.repeat_for == "") {
+      errors.push("A chore must have a repeat for");
     }
-    if (status == "") {
-      alert("A chore status cannot be empty");
-      return;
+    if (chore_info.status == "") {
+      errors.push("A chore status cannot be empty");
+    }
+    if (chore_info.points == "") {
+      errors.push("A chore must have points");
     }
 
-    if (points == "") {
-      alert("A chore must have points");
+  
+    if (errors.length > 0) {
+      let errorString = "";
+      for (let error of errors) {
+        errorString += error + "\n";
+      }
+      alert(errorString);
       return;
     }
+  
 
     let chore: Chore =
     {
-      choreId: null,
+
       name: chore_name,
+      createdBy: null,
       assignedTo: assigned_to,
+      status: status,
+      accepted: false,
+      choreId: null,
+      assignedDate: new Date(),
       dueDate: due_date,
       repeatFor: repeat_for,
-      assignedDate: new Date(),
-      status: status,
-      points: points
-
+      points: points,
     }
 
 
     this.choreService.createChore(chore).subscribe(
       {
         next: () => this.onSuccess(),
-        error: () => this.onError()
+        error: (err) => this.onError(err)
       }
     );
   }
@@ -85,8 +94,15 @@ export class CreateChoreComponent {
     alert("New Chore Created!");
   }
 
- private onError() {
-   alert("Unknown Error")
- }
+  private onError(err: any) {
+    console.error(err);
+    alert("Error occurred: " + err.message);
+  }
+  
+  
+//  private onError() {
+//   console.error(err);
+//    alert("Unknown Error")
+//  }
 
 }

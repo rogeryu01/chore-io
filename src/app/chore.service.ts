@@ -4,22 +4,22 @@ import { Observable } from 'rxjs';
 
 
 export interface Chore {
-  choreId: number | null;
   name: string;
-  //createdBy: string;
+  createdBy: string | null;
   assignedTo: string;
-  dueDate: Date | string;
-  //accepted: boolean;
-  assignedDate: Date;
-  repeatFor: string;
   status: string;
-  points: number | string;
+  accepted: boolean;
+  choreId: number | null;
+  assignedDate: Date;
+  dueDate: Date;
+  repeatFor: string;
+  points: number;
 
 }
 
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root' 
 })
 export class ChoreService {
 
