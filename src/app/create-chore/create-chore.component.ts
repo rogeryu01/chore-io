@@ -34,7 +34,7 @@ export class CreateChoreComponent {
     let points = parseInt(chore_info.points ?? "0");
 
     let errors = [];
-  
+
     if (chore_info.chore_name == "") {
       errors.push("A chore must have a name");
     }
@@ -54,7 +54,7 @@ export class CreateChoreComponent {
       errors.push("A chore must have points");
     }
 
-  
+
     if (errors.length > 0) {
       let errorString = "";
       for (let error of errors) {
@@ -63,17 +63,17 @@ export class CreateChoreComponent {
       alert(errorString);
       return;
     }
-  
+
 
     let chore: Chore =
     {
 
       name: chore_name,
-      createdBy: null,
+      createdBy: 'Jeff',
       assignedTo: assigned_to,
-      status: status,
+      completionStatus: status,
       accepted: false,
-      choreId: null,
+      choreId: 123,
       assignedDate: new Date(),
       dueDate: due_date,
       repeatFor: repeat_for,
@@ -98,11 +98,11 @@ export class CreateChoreComponent {
     console.error(err);
     alert("Error occurred: " + err.message);
   }
-  
-  
-//  private onError() {
-//   console.error(err);
-//    alert("Unknown Error")
-//  }
+
+
+  //  private onError() {
+  //   console.error(err);
+  //    alert("Unknown Error")
+  //  }
 
 }

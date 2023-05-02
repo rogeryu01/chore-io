@@ -1,12 +1,10 @@
 import { Component } from '@angular/core';
 import { CalendarEvent, CalendarView } from 'angular-calendar';
+import { ChoreService, Chore } from '../chore.service';
 import { startOfDay } from 'date-fns';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 
-interface Chore {
-  name: string;
-  description: string;
-}
 
 @Component({
   selector: 'app-calendar',
@@ -15,11 +13,17 @@ interface Chore {
 })
 export class CalendarComponent {
 
+  public chores$: Observable<Chore[]>;
+
+  constructor(private choreService: ChoreService, private router: Router) {
+    this.chores$ = choreService.getAllChores();
+  }
+
   public static Route = {
     path: 'calendar',
     component: CalendarComponent,
   }
-  viewDate: Date = new Date(); 
+  viewDate: Date = new Date();
   view: CalendarView = CalendarView.Week;
   CalendarView = CalendarView;
 
@@ -27,41 +31,41 @@ export class CalendarComponent {
   events: CalendarEvent[] = [
     {
       start: startOfDay(new Date()),
-      title: 'Cleaning the car' ,
+      title: 'Cleaning the car',
     }
   ]
-  //assume data from db
-//example: Hospital appointment info
-//let data=fromdb();
-//for(let x of data)
-//{
-//this.events = [
-//          ...this.events,
- //         {
-	//start:x["appointment_date"],
-//	title:x["patient_name"]+x["medical_problem"]
-// 	 }
-//	]
-//}
+
+  //example: Hospital appointment info
+  //let data=fromdb();
+
+  //{
+  //this.events = [
+  //          ...this.events,
+  //         {
+  //start:x["appointment_date"],
+  //	title:x["patient_name"]+x["medical_problem"]
+  // 	 }
+  //	]
+  //}
 
 
   newChoreName = '';
   newChoreDescription = '';
-  newChorePerson ='';
+  newChorePerson = '';
   chores: Chore[] = [];
 
-  onSubmit() {
+  /*onSubmit() {
     const newChore: Chore = {
       name: this.newChoreName,
       description: this.newChoreDescription,
-  
+
     };
 
     this.chores.push(newChore);
     this.newChoreName = '';
     this.newChoreDescription = '';
     this.newChorePerson = '';
-  }
+  }*/
 
   deleteChore(chore: Chore) {
     const index = this.chores.indexOf(chore);

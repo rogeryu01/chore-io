@@ -13,18 +13,18 @@ router.get('/', (req, res) => {
 })
 
 /* User Routes */
-router.get('/user', userController.getAllUsers);
-router.get('/user/:id', userController.getUser);
-router.post('/user', userController.addUser);
-router.patch('/user/:id', userController.updateUser);
-router.delete('/user/:id', userController.deleteUser);
+router.get('/api/user', userController.getAllUsers);
+router.get('/api/user/:id', userController.getUser);
+router.post('/api/user', userController.addUser);
+router.patch('/api/user/:id', userController.updateUser);
+router.delete('/api/user/:id', userController.deleteUser);
 
 /* Chore Routes */
-router.get('/chore', choreController.getAllChores);
-router.get('/chore/:id', choreController.getChore);
-router.post('/chore', choreController.addChore);
-router.patch('/chore/:id', choreController.updateChore);
-router.delete('/chore/:id', choreController.deleteChore);
+router.get('/api/chore', choreController.getAllChores);
+router.get('/api/chore/:id', choreController.getChore);
+router.post('/api/chore', choreController.addChore);
+router.patch('/api/chore/:id', choreController.updateChore);
+router.delete('/api/chore/:id', choreController.deleteChore);
 
 
 module.exports = router;

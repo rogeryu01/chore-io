@@ -1,48 +1,51 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { HttpHeaders, HttpResponse, HttpRequest, HttpParamsOptions } from '@angular/common/http';
+
 
 
 export interface Chore {
   name: string;
   createdBy: string | null;
   assignedTo: string;
-  status: string;
+  completionStatus: string;
   accepted: boolean;
   choreId: number | null;
   assignedDate: Date;
   dueDate: Date;
   repeatFor: string;
   points: number;
-
 }
 
+const baseUrl = 'http://localhost:4201/api/chore';
 
 @Injectable({
-  providedIn: 'root' 
+  providedIn: 'root'
 })
 export class ChoreService {
 
   constructor(private http: HttpClient) { }
 
   getAllChores(): Observable<Chore[]> {
-    return this.http.get<Chore[]>('/api/chore');
+    return this.http.get<Chore[]>(baseUrl);
   }
 
   getChore(choreId: number): Observable<Chore> {
-    return this.http.get<Chore>('/api/chore/' + choreId);
+    return this.http.get<Chore>(baseUrl + choreId);
   }
 
   createChore(chore: Chore): Observable<Chore> {
-    return this.http.post<Chore>('/api/chore', chore);
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    return this.http.post<Chore>(baseUrl, chore);
   }
 
   updateChore(chore: Chore): Observable<Chore> {
-    return this.http.put<Chore>('/api/chore', chore);
+    return this.http.put<Chore>(baseUrl, chore);
   }
 
   deleteChore(chore: Chore): Observable<Chore> {
-    return this.http.delete<Chore>('/api/chore/' + chore.choreId);
+    return this.http.delete<Chore>(baseUrl + chore.choreId);
   }
 
 
