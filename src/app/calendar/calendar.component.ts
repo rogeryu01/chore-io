@@ -35,37 +35,10 @@ export class CalendarComponent {
     }
   ]
 
-  //example: Hospital appointment info
-  //let data=fromdb();
-
-  //{
-  //this.events = [
-  //          ...this.events,
-  //         {
-  //start:x["appointment_date"],
-  //	title:x["patient_name"]+x["medical_problem"]
-  // 	 }
-  //	]
-  //}
-
-
   newChoreName = '';
   newChoreDescription = '';
   newChorePerson = '';
   chores: Chore[] = [];
-
-  /*onSubmit() {
-    const newChore: Chore = {
-      name: this.newChoreName,
-      description: this.newChoreDescription,
-
-    };
-
-    this.chores.push(newChore);
-    this.newChoreName = '';
-    this.newChoreDescription = '';
-    this.newChorePerson = '';
-  }*/
 
   deleteChore(chore: Chore) {
     const index = this.chores.indexOf(chore);

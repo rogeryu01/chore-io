@@ -2,27 +2,28 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title>My Calendar</title>
     <!-- Include any necessary external scripts or stylesheets  here -->
   </head>
   <body>
+    <h1>My Calendar</h1>
     <div class="row text-center">
       <div [ngSwitch]="view">
-        <mwl-calendar-week-view *ngSwitchCase="CalendarView.Week" [viewDate]="viewDate" [events]="events"></mwl-calendar-week-view>
+        <mwl-calendar-week-view *ngSwitchCase="CalendarView.Week" [viewDate]="viewDate" [events]="events" ></mwl-calendar-week-view>
       </div>
       <div class="col-md-4">
         <div class="btn-group">
-          <div class="btn btn-primary" mwlCalendarPreviousView [view]="view" [(viewDate)]="viewDate">
+          <div class="button" mwlCalendarPreviousView [view]="view" [(viewDate)]="viewDate">
             Previous
           </div>
-          <div class="btn btn-outline-secondary" mwlCalendarToday [(viewDate)]="viewDate">
+          <div class="button2" mwlCalendarToday [(viewDate)]="viewDate">
             Today
           </div>
-          <div class="btn btn-primary" mwlCalendarNextView [view]="view" [(viewDate)]="viewDate">
+          <div class="button3" mwlCalendarNextView [view]="view" [(viewDate)]="viewDate">
             Next
           </div>
         </div>
       </div>
     </div>
+    
   </body>
 </html>
