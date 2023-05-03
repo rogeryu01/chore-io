@@ -27,10 +27,8 @@ export class CalendarComponent {
     this.chores$.subscribe((chores: Chore[]) => {
       let chore: any
       for (chore of chores) {
-        console.log(chore.assignedDate)
-        console.log(chore.name)
         this.events.push({
-          start: new Date(chore.assignedDate),
+          start: new Date(new Date(chore.assignedDate).setUTCHours(4, 0, 0, 0)),
           title: chore.name
         })
       }

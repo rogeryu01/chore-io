@@ -3,6 +3,17 @@
 
 <head>
   <!-- Include any necessary external scripts or stylesheets  here -->
+  <style>
+    .btn-group {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .mat-raised-button {
+      width: 100px;
+      height: 50px;
+    }
+  </style>
 </head>
 
 <body>
@@ -10,17 +21,18 @@
   <div class="row text-center">
     <div class="col-md-4">
       <div class="btn-group">
-        <button mat-raised-button mwlCalendarPreviousView [view]="view" [(viewDate)]="viewDate">
-          Previous
+        <button class="mat-raised-button" mwlCalendarPreviousView [view]="view" [(viewDate)]="viewDate">
+          Previous Week
         </button>
-        <button mat-raised-button color="primary" mwlCalendarToday [(viewDate)]="viewDate">
-          Today
+        <button class="mat-raised-button" color="primary" mwlCalendarToday [(viewDate)]="viewDate">
+          Current Week
         </button>
-        <button mat raised-button mwlCalendarNextView [view]="view" [(viewDate)]="viewDate">
-          Next
+        <button class="mat-raised-button" mwlCalendarNextView [view]="view" [(viewDate)]="viewDate">
+          Next Week
         </button>
       </div>
     </div>
+    <br>
     <div [ngSwitch]="view" mwlCalendarToday [viewDate]="viewDate">
       <mwl-calendar-week-view *ngSwitchCase="CalendarView.Week" [viewDate]="viewDate"
         [events]="events"></mwl-calendar-week-view>
