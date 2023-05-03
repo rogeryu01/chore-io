@@ -13,29 +13,36 @@ import { Observable } from 'rxjs';
 })
 export class CalendarComponent {
 
-  public chores$: Observable<Chore[]>;
-
-  constructor(private choreService: ChoreService, private router: Router) {
-    this.chores$ = choreService.getAllChores();
-  }
-
   public static Route = {
     path: 'calendar',
     component: CalendarComponent,
   }
+
+  public chores$: Observable<Chore[]>;
+
+  events: CalendarEvent[] = []
+
+  constructor(private choreService: ChoreService, private router: Router) {
+    this.chores$ = choreService.getAllChores();
+    this.chores$.subscribe((chores: Chore[]) => {
+      let chore: any
+      for (chore of chores) {
+        console.log(chore.assignedDate)
+        console.log(chore.name)
+        this.events.push({
+          start: new Date(chore.assignedDate),
+          title: chore.name
+        })
+      }
+    })
+    console.log(this.events)
+  }
+
   viewDate: Date = new Date();
   view: CalendarView = CalendarView.Week;
   CalendarView = CalendarView;
 
-
-  events: CalendarEvent[] = [
-    {
-      start: startOfDay(new Date()),
-      title: 'Cleaning the car',
-    }
-  ]
-
-  newChoreName = '';
+  /*newChoreName = '';
   newChoreDescription = '';
   newChorePerson = '';
   chores: Chore[] = [];
@@ -43,5 +50,5 @@ export class CalendarComponent {
   deleteChore(chore: Chore) {
     const index = this.chores.indexOf(chore);
     this.chores.splice(index, 1);
-  }
+  }*/
 }
