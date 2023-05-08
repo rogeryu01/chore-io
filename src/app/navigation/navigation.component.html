@@ -1,43 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
+<head>
   <style>
-  body {
-  font-family: Verdana, Geneva, Tahoma, sans-serif, serif;
-  }
-  
-  .top-box h1 {
-  margin: 0;
-  }
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .create-chore-btn {
+      margin-left: auto;
+    }
   </style>
-  
-  <body style="background: #0A3A58;">
+</head>
+
+<body>
   <nav class="navbar navbar-expand navbar-dark bg-dark">
-  <div class="navbar-nav">
-  <a class="nav-item nav-link" routerLink="/view"><button mat-raised-button color="primary"><img
- src="https://cdn-icons-png.flaticon.com/512/60/60817.png" width="30px"
-height="30px"></button></a>
-  <a class="nav-item nav-link" routerLink="/calendar"><button mat-raised-button color="primary"
-  style="margin-left:50px;">Calendar</button></a>
-  <a class="nav-item nav-link" routerLink="/"><button mat-raised-button color="primary"
-  style="margin-left:50px;">Create a Chore</button></a>
+    <a class="nav-item nav-link" routerLink="/view">
+      <button mat-raised-button color="primary">
+        <img src="https://cdn-icons-png.flaticon.com/512/60/60817.png" width="30px" height="30px" />
+      </button>
+    </a>
+    <a class="nav-item nav-link" routerLink="/calendar">
+      <button mat-raised-button color="primary" style="margin-left: 50">
+        Calendar
+      </button>
+    </a>
+    <a class="nav-item nav-link create-chore-btn" routerLink="/">
+      <button mat-raised-button color="primary" style="margin-right: 50;">
+        Create a Chore
+      </button>
+    </a>
+  </nav>
+</body>
 
- </div>
-</nav>
-  </body>
-  
-  
-  <!-- main content container -->
-  <div class="jumbotron">
-<div class="container">
-<div class="row">
-<div class="col-sm-8 offset-sm-2">
-<router-outlet></router-outlet>
-</div>
- </div>
-</div>
+
+<!-- main content container -->
+<div class="jumbotron">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-8 offset-sm-2">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
   </div>
+</div>
 
-  
+
 </html>
 
 
@@ -48,5 +57,3 @@ height="30px"></button></a>
   <router-outlet></router-outlet>
 </main>
 <app-footer></app-footer>    -->
-
-

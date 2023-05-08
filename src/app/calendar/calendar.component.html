@@ -1,5 +1,47 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+
+<head>
+  <!-- Include any necessary external scripts or stylesheets  here -->
+  <style>
+    .btn-group {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .mat-raised-button {
+      width: 100px;
+      height: 50px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>My Calendar</h1>
+  <div class="row text-center">
+    <div class="col-md-4">
+      <div class="btn-group">
+        <button class="mat-raised-button" mwlCalendarPreviousView [view]="view" [(viewDate)]="viewDate">
+          Previous Week
+        </button>
+        <button class="mat-raised-button" color="primary" mwlCalendarToday [(viewDate)]="viewDate">
+          Current Week
+        </button>
+        <button class="mat-raised-button" mwlCalendarNextView [view]="view" [(viewDate)]="viewDate">
+          Next Week
+        </button>
+      </div>
+    </div>
+    <br>
+    <div [ngSwitch]="view" mwlCalendarToday [viewDate]="viewDate">
+      <mwl-calendar-week-view *ngSwitchCase="CalendarView.Week" [viewDate]="viewDate"
+        [events]="events"></mwl-calendar-week-view>
+    </div>
+  </div>
+
+</body>
+
+=======
   <head>
     <meta charset="UTF-8">
     <!-- Include any necessary external scripts or stylesheets  here -->

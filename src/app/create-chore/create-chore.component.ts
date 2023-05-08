@@ -30,7 +30,6 @@ export class CreateChoreComponent {
     let due_date_str = chore_info.due_date!;
     let due_date = new Date(due_date_str);
     let repeat_for = chore_info.repeat_for!;
-    let status = chore_info.status!;
     let points = parseInt(chore_info.points ?? "0");
 
     let errors = [];
@@ -46,9 +45,6 @@ export class CreateChoreComponent {
     }
     if (chore_info.repeat_for == "") {
       errors.push("A chore must have a repeat for");
-    }
-    if (chore_info.status == "") {
-      errors.push("A chore status cannot be empty");
     }
     if (chore_info.points == "") {
       errors.push("A chore must have points");
@@ -70,7 +66,7 @@ export class CreateChoreComponent {
       name: chore_name,
       createdBy: 'Jeff',
       assignedTo: assigned_to,
-      completionStatus: status,
+      completionStatus: "in progress",
       accepted: false,
       choreId: 123,
       assignedDate: new Date(),
@@ -86,6 +82,7 @@ export class CreateChoreComponent {
         error: (err) => this.onError(err)
       }
     );
+    console.log(chore)
   }
 
   private onSuccess() {
