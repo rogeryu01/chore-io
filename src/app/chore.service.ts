@@ -5,7 +5,6 @@ import { HttpHeaders, HttpResponse, HttpRequest, HttpParamsOptions } from '@angu
 //import { choreColumns } from 'src/models/chore.model';
 
 
-
 export interface Chore {
   name: string;
   createdBy: string | null;
