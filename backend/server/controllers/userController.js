@@ -31,6 +31,40 @@ async function getUser(req, res) {
     }
 }
 
+/* Get specific user controller to retrieve a user's points. Result variable checks for success. */
+async function getUserPoints(id) {
+    var id = req.params.id;
+    try {
+        var result = await userServices.getUserPoints(id);
+        if (result) {
+            res.status(200).jsonp(result);
+        } else {
+            res.status(200).json({ success: true, msg: 'User points not found.' })
+        }
+    } catch (e) {
+        console.log(e.message);
+        res.status(500).json({ success: false, msg: 'Failed to retrieve user points.' });
+    }
+}
+
+/* Get specific user controller to update a user's points. Result variable checks for success. */
+async function updateUserPoints(req, res) {
+    var id = req.params.id;
+    var body = req.body; 
+
+    try {
+        var status = await userServices.updateUserPoints(id, body);
+        if (status) {
+            res.status(200).json({ success: true, msg: 'Successfully updated the user points.' });
+        } else {
+            res.status(200).json({ success: true, msg: 'User not found.' });
+        }
+    } catch (e) {
+        console.log(e.message);
+        res.status(500).json({ success: false, msg: 'Failed to update user points.' });
+    }
+}
+
 /* Add a user controller to add a user. Status variable checks for success. */
 async function addUser(req, res) {
     var body = req.body;
@@ -85,6 +119,8 @@ async function deleteUser(req, res) {
 module.exports = {
     getAllUsers,
     getUser,
+    getUserPoints,
+    updateUserPoints,
     addUser,
     updateUser,
     deleteUser

@@ -1,9 +1,9 @@
+
 <head>
   <meta charset="UTF-8">
   <!-- Include any necessary external scripts or stylesheets  here -->
   <link rel="stylesheet" type="text/css" href="view-chores.component.css">
 </head>
-
 
 <h1>Welcome to Chore.io!</h1>
 
@@ -28,14 +28,29 @@
       </tbody>
     </table>
   </div>
+
   <div class="all-chores">
     <h2>All Chores</h2>
     <table>
       <tbody>
         <tr *ngFor="let chore of chores$ | async">
           <td style="font-size: 25px;">{{chore.name}}</td>
+          <td style="font-size: 25px;">
+            <div style="display: inline-block;">
+              {{chore.name}}
+              <button (click)="toggleTaskStatus(chore)"
+                [style.backgroundColor]="chore.completionStatus === 'In Progress' ? 'gray' : 'green'"
+                style="width: 20px; height: 20px;">
+              </button>
+            </div>
+            <span [style.color]="chore.completionStatus === 'In Progress' ? 'gray' : 'green'">
+              {{ chore.completionStatus }}
+              <span *ngIf="chore.completionStatus === 'Complete'" style="color: green;">&#10004; </span>
+            </span>
+          </td>
         </tr>
       </tbody>
     </table>
   </div>
 </div>
+

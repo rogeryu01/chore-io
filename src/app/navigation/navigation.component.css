@@ -22,17 +22,16 @@
 .navbar-nav {
   display: flex;
   align-items: center;
-  margin-right: auto; /* Add margin-right: auto to push buttons to the left */
+  margin-right: auto; 
+  /* Add margin-right: auto to push buttons to the left */
 }
 
 /* Change background color of all buttons to blue */
-button {
-  background-color: white;
-}
 
 /* Change text color of all buttons to white */
 button {
   /* color: white; */
+  background-color: white;
   border: 1px solid rgba(27, 31, 35, 0.15);
   border-radius: 6px;
   box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0, rgba(255, 255, 255, 0.25) 0 1px 0 inset;
@@ -55,5 +54,5 @@ button {
   white-space: nowrap;
   word-wrap: break-word;
   font-size: 16px;
-
+  margin-right: 30px;
 }
