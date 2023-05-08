@@ -25,20 +25,26 @@
 
 <body>
   <h1>My Calendar</h1>
-  <div class="button" mwlCalendarPreviousView [view]="view" [(viewDate)]="viewDate">
-    &lt;Previous
-  </div>
-  <div class="button" mwlCalendarToday [(viewDate)]="viewDate">
-    Today
-  </div>
-  <div class="button" mwlCalendarNextView [view]="view" [(viewDate)]="viewDate">
-    Next>
-  </div>
-  <!-- <div class="square"></div> -->
   <div class="row text-center">
-    <div [ngSwitch]="view">
-      <mwl-calendar-week-view *ngSwitchCase="CalendarView.Week" [viewDate]="viewDate"
-        [events]="events"></mwl-calendar-week-view>
+    <div class="col-md-4">
+      <div class="btn-group">
+        <button class="button" mwlCalendarPreviousView [view]="view" [(viewDate)]="viewDate">
+          Previous Week
+        </button>
+        <button class="button" color="primary" mwlCalendarToday [(viewDate)]="viewDate">
+          Current Week
+        </button>
+        <button class="button" mwlCalendarNextView [view]="view" [(viewDate)]="viewDate">
+          Next Week
+        </button>
+      </div>
+    </div>
+    <!-- <div class="square"></div> -->
+    <div class="row text-center">
+      <div [ngSwitch]="view">
+        <mwl-calendar-week-view *ngSwitchCase="CalendarView.Week" [viewDate]="viewDate"
+          [events]="events"></mwl-calendar-week-view>
+      </div>
     </div>
   </div>
 </body>

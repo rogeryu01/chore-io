@@ -18,20 +18,18 @@ async function getAllChores(req, res) {
 /* Get all controller to retrieve all chores by user. Result variable checks for success. */
 async function getChoresByUser(req, res) {
     try {
-      const userName = req.params.userName;
-      const chores = await choreServices.getChoresByUser(userName);
-      if (chores) {
-        res.status(200).jsonp(chores);
-      } else {
-        res.status(200).json({ success: true, msg: `No chores found assigned to ${userName}` });
-      }
+        var userId = req.params.userId;
+        const chores = await choreServices.getChoresByUser(userId);
+        if (chores) {
+            res.status(200).jsonp(chores);
+        } else {
+            res.status(200).json({ success: true, msg: `No chores found assigned to ${userId}` });
+        }
     } catch (e) {
-      console.log(e.message);
-      res.status(500).json({ success: false, msg: 'Failed to retrieve chores.' });
+        console.log(e.message);
+        res.status(500).json({ success: false, msg: 'Failed to retrieve chores.' });
     }
-  }
-  
-
+}
 
 /* Get specific chore controller to retrieve a chore. Result variable checks for success. */
 async function getChore(req, res) {

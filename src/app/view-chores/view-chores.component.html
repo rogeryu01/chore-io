@@ -1,11 +1,32 @@
+
+<head>
+  <meta charset="UTF-8">
+  <!-- Include any necessary external scripts or stylesheets  here -->
+  <link rel="stylesheet" type="text/css" href="view-chores.component.css">
+</head>
+
 <h1>Welcome to Chore.io!</h1>
 
 <p>This is a WIP prototype for Chore.io.</p>
+<p>Select user to view their chores</p>
+
+<div>
+  <button class="button" (click)="changeUser(1)">Roger</button>
+  <button class="button" (click)="changeUser(2)">Jeff</button>
+  <button class="button" (click)="changeUser(3)">Iris</button>
+  <button class="button" (click)="changeUser(4)">Callie</button>
+</div>
 
 <div class="chores-container">
-
   <div class="your-chores">
     <h2>Your Chores</h2>
+    <table>
+      <tbody>
+        <tr *ngFor="let chore of userChores$ | async">
+          <td style="font-size: 25px;">{{chore.name}}</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 
   <div class="all-chores">
@@ -13,6 +34,7 @@
     <table>
       <tbody>
         <tr *ngFor="let chore of chores$ | async">
+          <td style="font-size: 25px;">{{chore.name}}</td>
           <td style="font-size: 25px;">
             <div style="display: inline-block;">
               {{chore.name}}
@@ -31,3 +53,4 @@
     </table>
   </div>
 </div>
+
