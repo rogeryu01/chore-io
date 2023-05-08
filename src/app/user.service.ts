@@ -7,6 +7,8 @@ export interface User {
   userId: Number
 }
 
+const baseUrl = 'http://localhost:4201/api/user';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -14,24 +16,25 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
-  getAllusers(): Observable<User[]> {
-    return this.http.get<User[]>('/api/user');
+
+  getAllUsers(): Observable<User[]> {
+    return this.http.get<User[]>(baseUrl);
   }
 
-  getuser(userId: number): Observable<User> {
-    return this.http.get<User>('/api/user/' + userId);
+  getUser(userId: number): Observable<User> {
+    return this.http.get<User>(baseUrl + userId);
   }
 
-  createuser(user: User): Observable<User> {
-    return this.http.post<User>('/api/user', user);
+  createUser(user: User): Observable<User> {
+    return this.http.post<User>(baseUrl, user);
   }
 
-  updateuser(user: User): Observable<User> {
-    return this.http.put<User>('/api/user', user);
+  updateUser(user: User): Observable<User> {
+    return this.http.put<User>(baseUrl, user);
   }
 
-  deleteuser(user: User): Observable<User> {
-    return this.http.delete<User>('/api/user/' + user.userId);
+  deleteUser(user: User): Observable<User> {
+    return this.http.delete<User>(baseUrl + user.userId);
   }
 
 }

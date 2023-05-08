@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { ChoreService, Chore } from '../chore.service';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { UserService } from '../user.service';
 
 
 @Component({
@@ -13,21 +14,16 @@ import { Observable } from 'rxjs';
 export class ViewChoresComponent {
 
   public chores$: Observable<Chore[]>;
+  public userChores$: Observable<Chore[]>;
 
-  constructor(private choreService: ChoreService, private router: Router) {
+
+  constructor(private choreService: ChoreService, private userService: UserService, private router: Router) {
     this.chores$ = this.choreService.getAllChores()
-    //console.log("this is the array " + this.chores$)
+    this.userChores$ = this.choreService.getChoresByUser()
+   
   }
 
-  /*ngOnInit() {
-    console.log("hello")
-    this.chores$ = this.choreService.getAllChores().subscribe({
-      next: (data) => {
-        console.log(data)
-      },
-      error: (e) => console.error(e)
-    });
-  }*/
+
 }
 
 
