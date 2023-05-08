@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { HttpHeaders, HttpResponse, HttpRequest, HttpParamsOptions } from '@angular/common/http';
+//import { choreColumns } from 'src/models/chore.model';
 
 
 
@@ -31,8 +32,8 @@ export class ChoreService {
     return this.http.get<Chore[]>(baseUrl);
   }
 
-  getChore(choreId: number): Observable<Chore> {
-    return this.http.get<Chore>(baseUrl + choreId);
+  getChoresByUser(): Observable<Chore[]> {
+    return this.http.get<Chore[]>(baseUrl);
   }
 
   createChore(chore: Chore): Observable<Chore> {

@@ -1,51 +1,50 @@
-<h3>Create New Chore</h3>
+<h1>Create New Chore</h1>
 
 <form [formGroup]="createChoreForm" (ngSubmit)="onSubmit()">
 
-  <div>
-    <label for="chore_name">
-      Chore Name
-    </label>
-    <input id="chore_name" type="text" formControlName="chore_name">
-  </div>
+    <div>
+        <label for="chore_name">
+         Chore Name
+        </label>
+        <input id="chore_name" type="text" formControlName="chore_name" class="my-form-control">
+      </div>
+    
+      <div>
+        <label for="assigned_to">
+          Assigned To
+        </label>
+        <input id="assigned_to" type="text" formControlName="assigned_to" class="my-form-control">
+      </div>
 
-  <div>
-    <label for="assigned_to">
-      Assigned To
-    </label>
-    <input id="assigned_to" type="text" formControlName="assigned_to">
-  </div>
+      <div>
+        <label for="due_date">
+         Due Date
+        </label>
+        <input id="due_date" type="date" formControlName="due_date" class="my-form-control">
+      </div>
 
-  <div>
-    <label for="due_date">
-      Due Date
-    </label>
-    <input id="due_date" type="date" formControlName="due_date">
-  </div>
-
-  <div>
-    <label for="repeat_for">
-      Repeat For
-    </label>
-    <select id="repeat_for" formControlName="repeat_for">
-      <option value="weekly">Weekly</option>
-      <option value="biweekly">Biweekly</option>
-      <option value="monthly">Monthly</option>
-      <option value="never">Never</option>
-    </select>
-  </div>
-
-  <div>
-    <label for="points">
-      Points
-    </label>
-    <select id="points" formControlName="points">
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-    </select>
-  </div>
+      <div>
+        <label for="repeat_for">
+         Repeat For
+        </label>
+        <input id="repeat_for" type="text" formControlName="repeat_for" class="my-form-control">
+      </div>
 
 
-  <button class="button" type="submit">Submit Chore</button>
-</form>
+      <div>
+        <label for="status">
+         Status
+        </label>
+        <input id="status" type="text" formControlName="status" class="my-form-control">
+      </div>
+
+      <div>
+        <label for="points">
+         Points
+        </label>
+        <input id="points" type="text" formControlName="points" class="my-form-control">
+      </div>
+
+
+    <button class="button" type="submit" >Submit Chore</button>
+  </form>

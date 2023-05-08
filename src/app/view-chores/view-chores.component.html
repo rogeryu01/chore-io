@@ -1,15 +1,22 @@
+
 <h1>Welcome to Chore.io!</h1>
-<!-- <link rel="stylesheet" href="view-chores.component.css"> -->
 
 <p>This is a WIP prototype for Chore.io.</p>
 
 
-<h1>All Chores</h1>
-
-<table>
-    <tbody>
-        <tr *ngFor="let chore of chores$ | async">
-            <td style="font-size: 25px;">{{chore.name}}</td>
-        </tr>
-    </tbody>
-</table>
+<div class="chores-container">
+    <div class="your-chores">
+      <h2>Your Chores</h2>
+    
+    </div>
+    <div class="all-chores">
+        <h2>All Chores</h2>
+        <table>
+          <tbody>
+            <tr *ngFor="let chore of chores$ | async">
+              <td style="font-size: 25px;">{{chore.name}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+  </div>

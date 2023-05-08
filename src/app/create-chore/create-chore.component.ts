@@ -63,7 +63,6 @@ export class CreateChoreComponent {
 
     let chore: Chore =
     {
-
       name: chore_name,
       createdBy: 'Jeff',
       assignedTo: assigned_to,
@@ -95,11 +94,5 @@ export class CreateChoreComponent {
     console.error(err);
     alert("Error occurred: " + err.message);
   }
-
-
-  //  private onError() {
-  //   console.error(err);
-  //    alert("Unknown Error")
-  //  }
 
 }

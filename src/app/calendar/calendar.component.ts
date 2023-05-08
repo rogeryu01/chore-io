@@ -40,13 +40,5 @@ export class CalendarComponent {
   view: CalendarView = CalendarView.Week;
   CalendarView = CalendarView;
 
-  /*newChoreName = '';
-  newChoreDescription = '';
-  newChorePerson = '';
-  chores: Chore[] = [];
-
-  deleteChore(chore: Chore) {
-    const index = this.chores.indexOf(chore);
-    this.chores.splice(index, 1);
-  }*/
 }
+

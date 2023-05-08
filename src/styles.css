@@ -2,7 +2,7 @@
 @import "../node_modules/angular-calendar/css/angular-calendar.css"; 
 
 h1 {
-    font-family: 'Inter';
+    font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
     font-style: normal;
     font-weight: 400;
     font-size: 30px;
@@ -11,6 +11,6 @@ h1 {
 }
 
 p {
-    font-family: 'Inter';
-
+    font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
 }
+

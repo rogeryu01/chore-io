@@ -18,6 +18,23 @@ async function getAllChores() {
     return chores;
 }
 
+/* Runs mongoose function to get all chore records for a specific user from the database */
+async function getChoresByUser(userName) {
+    try {
+      const chores = await choreModel.find({assignedTo: userName });
+      if (chores) {
+        console.log(`Found ${chores.length} chores assigned to ${userName}`);
+      } else {
+        console.log(`No chores found assigned to ${userName}`);
+      }
+      return chores;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  
+
+
 /* Runs mongoose function to find a specific chore*/
 async function getChore(id) {
     try {
@@ -50,10 +67,10 @@ async function addChore(body) {
     try {
         var status = await choreModel.findOne(body)
         if (status) {
-            console.log('User is already in database');
+            console.log('Chore is already in database');
         } else {
             chore.save()
-            console.log('User has been successfully added');
+            console.log('Chore has been successfully added');
         }
     } catch (error) {
         console.log(error);
@@ -94,6 +111,7 @@ async function deleteChore(id) {
 
 module.exports = {
     getAllChores,
+    getChoresByUser,
     getChore,
     addChore,
     updateChore,
