@@ -39,7 +39,7 @@ async function addUser(req, res) {
         if (status) {
             res.status(200).json({ success: true, msg: 'User already exists.' });
         } else {
-            res.status(200).json({ success: true, msg: 'User added.' });
+            res.status(200).json({ success: true, msg: 'User added successfully.' });
         }
     } catch (e) {
         console.log(e.message);

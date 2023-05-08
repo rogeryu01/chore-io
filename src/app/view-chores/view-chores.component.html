@@ -1,22 +1,34 @@
-
 <h1>Welcome to Chore.io!</h1>
 
 <p>This is a WIP prototype for Chore.io.</p>
+<p>Select user to view their chores</p>
 
+<div>
+  <button (click)="changeUser(1)">Roger</button>
+  <button (click)="changeUser(2)">Jeff</button>
+  <button (click)="changeUser(3)">Iris</button>
+  <button (click)="changeUser(4)">Callie</button>
+</div>
 
 <div class="chores-container">
-    <div class="your-chores">
-      <h2>Your Chores</h2>
-    
-    </div>
-    <div class="all-chores">
-        <h2>All Chores</h2>
-        <table>
-          <tbody>
-            <tr *ngFor="let chore of chores$ | async">
-              <td style="font-size: 25px;">{{chore.name}}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+  <div class="your-chores">
+    <h2>Your Chores</h2>
+    <table>
+      <tbody>
+        <tr *ngFor="let chore of userChores$ | async">
+          <td style="font-size: 25px;">{{chore.name}}</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
+  <div class="all-chores">
+    <h2>All Chores</h2>
+    <table>
+      <tbody>
+        <tr *ngFor="let chore of chores$ | async">
+          <td style="font-size: 25px;">{{chore.name}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

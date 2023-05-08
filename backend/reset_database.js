@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const User = require('/Users/calliexu/Documents/chore-io/backend/server/models/User.js');
+const User = require('./server/models/User.js');
 
 // Connect to MongoDB
 mongoose.connect('mongodb+srv://jeffyi123:Rockclimbing123!@chore-io.mywtcgk.mongodb.net/?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true })

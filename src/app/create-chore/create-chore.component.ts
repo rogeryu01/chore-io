@@ -65,7 +65,7 @@ export class CreateChoreComponent {
     {
       name: chore_name,
       createdBy: 'Jeff',
-      assignedTo: assigned_to,
+      assignedTo: 1,
       completionStatus: "in progress",
       accepted: false,
       choreId: 123,

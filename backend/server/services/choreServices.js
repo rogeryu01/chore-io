@@ -19,20 +19,21 @@ async function getAllChores() {
 }
 
 /* Runs mongoose function to get all chore records for a specific user from the database */
-async function getChoresByUser(userName) {
+async function getChoresByUser(userId) {
     try {
-      const chores = await choreModel.find({assignedTo: userName });
-      if (chores) {
-        console.log(`Found ${chores.length} chores assigned to ${userName}`);
-      } else {
-        console.log(`No chores found assigned to ${userName}`);
-      }
-      return chores;
+        const chores = await choreModel.find({ assignedTo: userId });
+        if (chores) {
+            console.log(chores)
+            console.log(`Found ${chores.length} chores assigned to ${userId}`);
+        } else {
+            console.log(`No chores found assigned to ${userId}`);
+        }
+        return chores;
     } catch (error) {
-      console.log(error);
+        console.log(error);
     }
-  }
-  
+}
+
 
 
 /* Runs mongoose function to find a specific chore*/
@@ -50,18 +51,7 @@ async function getChore(id) {
     return chore;
 }
 
-/* Runs mongoose function to add a new chore to the database */
-// async function addChore(body) {    
-//     var chore = new choreModel(body);
-//     try {
-//         await chore.save();
-//         console.log('Chore successfully added');
-//         return { success: true };
-//     } catch (error) {
-//         console.log(error);
-//         throw new Error('Failed to add chore');
-//     }
-// }
+
 async function addChore(body) {
     var chore = new choreModel(body);
     try {

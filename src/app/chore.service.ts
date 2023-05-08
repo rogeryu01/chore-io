@@ -9,7 +9,7 @@ import { HttpHeaders, HttpResponse, HttpRequest, HttpParamsOptions } from '@angu
 export interface Chore {
   name: string;
   createdBy: string | null;
-  assignedTo: string;
+  assignedTo: Number;
   completionStatus: string;
   accepted: boolean;
   choreId: number | null;
@@ -17,6 +17,11 @@ export interface Chore {
   dueDate: Date;
   repeatFor: string;
   points: number;
+}
+
+export interface User {
+  userName: String,
+  userId: Number
 }
 
 const baseUrl = 'http://localhost:4201/api/chore';
@@ -32,12 +37,14 @@ export class ChoreService {
     return this.http.get<Chore[]>(baseUrl);
   }
 
-  getChoresByUser(): Observable<Chore[]> {
-    return this.http.get<Chore[]>(baseUrl);
+  getChoresByUser(userId: Number): Observable<Chore[]> {
+    console.log("getChoresByUser working")
+    console.log(userId)
+    return this.http.get<Chore[]>(baseUrl + "/user/" + userId);
   }
 
   createChore(chore: Chore): Observable<Chore> {
-    let headers = new Headers({ 'Content-Type': 'application/json' });
+    // let headers = new Headers({ 'Content-Type': 'application/json' });
     return this.http.post<Chore>(baseUrl, chore);
   }
 

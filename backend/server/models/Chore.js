@@ -10,7 +10,7 @@ const choreSchema = new mongoose.Schema({
         required: true
     },
     assignedTo: {
-        type: String,
+        type: Number,
         required: true
     },
     completionStatus: {

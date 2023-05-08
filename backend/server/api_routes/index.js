@@ -22,7 +22,7 @@ router.delete('/api/user/:id', userController.deleteUser);
 /* Chore Routes */
 router.get('/api/chore', choreController.getAllChores);
 router.get('/api/chore/:id', choreController.getChore);
-router.get('/api/chore/user/:userName', choreController.getChoresByUser);
+router.get('/api/chore/user/:userId', choreController.getChoresByUser);
 router.post('/api/chore', choreController.addChore);
 router.patch('/api/chore/:id', choreController.updateChore);
 router.delete('/api/chore/:id', choreController.deleteChore);
