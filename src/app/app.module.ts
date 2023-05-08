@@ -14,6 +14,7 @@ import { CreateChoreComponent } from './create-chore/create-chore.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { ViewChoresComponent } from './view-chores/view-chores.component';
 import { HowtoComponent } from './howto/howto.component';
+import { LeaderboardComponent } from './leaderboard/leaderboard.component';
 //import { AppNavComponent} from './app-nav/app-nav.component';
 
 
@@ -26,6 +27,7 @@ import { HowtoComponent } from './howto/howto.component';
     CreateChoreComponent,
     ViewChoresComponent,
     HowtoComponent,
+    LeaderboardComponent,
     
   ],
   imports: [

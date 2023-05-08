@@ -23,6 +23,19 @@ export class ViewChoresComponent {
    
   }
 
+  performChore(chore: Chore) {
+    chore.completionStatus = "Complete"
+    this.choreService.updateChore(chore)
+   // Assuming the chore object has an "isDone" property to track its completion status
+  }
+
+  toggleTaskStatus(chore: Chore) {
+    if (chore.completionStatus === 'In Progress') {
+      chore.completionStatus = 'Complete';
+    } else {
+      chore.completionStatus = 'In Progress';
+    }
+    this.choreService.updateChore(chore);
+  }
+
 }
-
-

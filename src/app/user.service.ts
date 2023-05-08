@@ -25,11 +25,21 @@ export class UserService {
     return this.http.get<User>(baseUrl + userId);
   }
 
+  // UNSURE
+  // getUserPoints(userId: number): Observable<User> {
+  //   return this.http.get<User>(baseUrl + userId);
+  // }
+
   createUser(user: User): Observable<User> {
     return this.http.post<User>(baseUrl, user);
   }
 
   updateUser(user: User): Observable<User> {
+    return this.http.put<User>(baseUrl, user);
+  }
+
+    // UNSURE
+  updateUserPoints(user: User): Observable<User> {
     return this.http.put<User>(baseUrl, user);
   }
 

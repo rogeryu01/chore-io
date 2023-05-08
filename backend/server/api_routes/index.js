@@ -15,8 +15,10 @@ router.get('/', (req, res) => {
 /* User Routes */
 router.get('/api/user', userController.getAllUsers);
 router.get('/api/user/:id', userController.getUser);
-router.post('/api/user', userController.addUser);
+router.get('/api/user/:id', userController.getUserPoints);
+router.patch('/api/user/:id', userController.updateUserPoints);
 router.patch('/api/user/:id', userController.updateUser);
+router.post('/api/user', userController.addUser);
 router.delete('/api/user/:id', userController.deleteUser);
 
 /* Chore Routes */

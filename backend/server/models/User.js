@@ -8,6 +8,10 @@ const userSchema = new mongoose.Schema({
     userId: {
         type: Number,
         required: true
+    },
+    userPoints: {
+        type: Number,
+        required: true
     }
 });
 
