@@ -1,0 +1,17 @@
+
+/* You can add global styles to this file, and also import other style files */
+@import "../node_modules/angular-calendar/css/angular-calendar.css"; 
+/* @import "/src/app/calendar/calendar-styles.css" */
+
+h1 {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 36px;
+}
+
+p {
+    font-family: 'Inter';
+
+}

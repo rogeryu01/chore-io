@@ -1,16 +1,16 @@
-/* You can add global styles to this file, and also import other style files */
-@import "../node_modules/angular-calendar/css/angular-calendar.css"; 
-
 h1 {
     font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
     font-style: normal;
     font-weight: 400;
     font-size: 30px;
     line-height: 36px;
-    /* margin-top: 100px; */
+    margin-top: 100px; 
 }
 
 p {
     font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 36px;
 }
-

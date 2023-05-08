@@ -4,14 +4,15 @@ const express = require('express');
 const db = require('./database');
 const routes = require("./api_routes/index");
 
-/* Creating an express app on port 8080 */
+/* Creating an express app on port 4200 */
 const app = express();
-const port = 8080;
+const port = 4201;
 
 /* Initalizing cors */
 var corsOptions = {
     origin: "http://localhost:4200"
 };
+
 
 app.use(cors(corsOptions));
 

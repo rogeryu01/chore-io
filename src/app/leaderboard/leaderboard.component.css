@@ -1,0 +1,38 @@
+h1 {
+    font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 28px;
+    margin-top: 100px; 
+    text-align: center; /* Center the contents within the icon element */
+}
+
+h2 {
+    font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 36px;
+    text-align: center; /* Center the contents within the icon element */
+}
+
+.icon-container {
+    /* trying to get it more close to top */
+    margin-top: 0px;
+    display: flex; /* Use flexbox to make the children display horizontally */
+  }
+  
+  .icon {
+    flex: 1; /* Use flexbox to evenly distribute the space between the children */
+    text-align: center; /* Center the contents within the icon element */
+    font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;    
+    transform: scale(0.75);
+  }
+
+buttoncheck {
+    display: flex; /* Use flexbox to make the children display horizontally */
+}

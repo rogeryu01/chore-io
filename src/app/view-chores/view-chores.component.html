@@ -1,0 +1,33 @@
+<h1>Welcome to Chore.io!</h1>
+
+<p>This is a WIP prototype for Chore.io.</p>
+
+<div class="chores-container">
+
+  <div class="your-chores">
+    <h2>Your Chores</h2>
+  </div>
+
+  <div class="all-chores">
+    <h2>All Chores</h2>
+    <table>
+      <tbody>
+        <tr *ngFor="let chore of chores$ | async">
+          <td style="font-size: 25px;">
+            <div style="display: inline-block;">
+              {{chore.name}}
+              <button (click)="toggleTaskStatus(chore)"
+                [style.backgroundColor]="chore.completionStatus === 'In Progress' ? 'gray' : 'green'"
+                style="width: 20px; height: 20px;">
+              </button>
+            </div>
+            <span [style.color]="chore.completionStatus === 'In Progress' ? 'gray' : 'green'">
+              {{ chore.completionStatus }}
+              <span *ngIf="chore.completionStatus === 'Complete'" style="color: green;">&#10004; </span>
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,50 @@
+<h1>Create New Chore</h1>
+
+<form [formGroup]="createChoreForm" (ngSubmit)="onSubmit()">
+
+    <div>
+        <label for="chore_name">
+         Chore Name
+        </label>
+        <input id="chore_name" type="text" formControlName="chore_name" class="my-form-control">
+      </div>
+    
+      <div>
+        <label for="assigned_to">
+          Assigned To
+        </label>
+        <input id="assigned_to" type="text" formControlName="assigned_to" class="my-form-control">
+      </div>
+
+      <div>
+        <label for="due_date">
+         Due Date
+        </label>
+        <input id="due_date" type="date" formControlName="due_date" class="my-form-control">
+      </div>
+
+      <div>
+        <label for="repeat_for">
+         Repeat For
+        </label>
+        <input id="repeat_for" type="text" formControlName="repeat_for" class="my-form-control">
+      </div>
+
+
+      <div>
+        <label for="status">
+         Status
+        </label>
+        <input id="status" type="text" formControlName="status" class="my-form-control">
+      </div>
+
+      <div>
+        <label for="points">
+         Points
+        </label>
+        <input id="points" type="text" formControlName="points" class="my-form-control">
+      </div>
+
+
+    <button class="button" type="submit" >Submit Chore</button>
+  </form>

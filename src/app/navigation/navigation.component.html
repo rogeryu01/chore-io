@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <style>
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .create-chore-btn {
+      margin-left: auto;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand navbar-dark bg-dark">
+    <a class="nav-item nav-link" routerLink="/view">
+      <button mat-raised-button color="primary">
+        <img src="https://cdn-icons-png.flaticon.com/512/60/60817.png" width="30px" height="30px" />
+      </button>
+    </a>
+    <a class="nav-item nav-link" routerLink="/calendar">
+      <button mat-raised-button color="primary" style="margin-left: 50">
+        Calendar
+      </button>
+    </a>
+    <a class="nav-item nav-link" routerLink="/leaderboard">
+      <button mat-raised-button color="primary" style="margin-right: 50;">
+        Leaderboard
+      </button>
+    </a>
+
+    <a class="nav-item nav-link create-chore-btn" routerLink="/">
+      <button mat-raised-button color="primary" style="margin-right: 50;">
+        Create a Chore
+      </button>
+    </a>
+
+    <a class="nav-item nav-link how-to-page" routerLink="/howto">
+      <button mat-raised-button color="primary" style="margin-right: 50;">
+        How To Use
+      </button>
+    </a>
+  </nav>
+</body>
+
+
+<!-- main content container -->
+<div class="jumbotron">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-8 offset-sm-2">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</html>
+
+
+<!-- 
+<app-navbar></app-navbar>
+<app-header></app-header>
+<main>
+  <router-outlet></router-outlet>
+</main>
+<app-footer></app-footer>    -->
