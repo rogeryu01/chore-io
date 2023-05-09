@@ -31,11 +31,6 @@ export class ViewChoresComponent {
   public changeUser(userId: number): void {
     this.userId = userId;
     this.userChores$ = this.choreService.getChoresByUser(this.userId);
-
-  public performChore(chore: Chore): void {
-    chore.completionStatus = "Complete"
-    this.choreService.updateChore(chore)
-   // Assuming the chore object has an "isDone" property to track its completion status
   }
 
   toggleTaskStatus(chore: Chore) {
