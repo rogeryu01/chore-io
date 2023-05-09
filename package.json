@@ -7,9 +7,11 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
+    “heroku-postbuild”: “ng build — prod”
   },
   "private": true,
   "dependencies": {
+    
     "@angular/animations": "^15.0.0",
     "@angular/cdk": "^15.2.8",
     "@angular/common": "^15.0.0",
@@ -51,3 +53,4 @@
     "typescript": "~4.8.2"
   }
 }
+
