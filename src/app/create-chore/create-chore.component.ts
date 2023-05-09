@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { Chore, ChoreService } from '../chore.service';
+import { UserService, User } from '../user.service';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { Observable } from 'rxjs';
 
 
 @Component({
@@ -21,12 +23,45 @@ export class CreateChoreComponent {
     assignedDate: ''
   });
 
-  constructor(private formBuilder: FormBuilder, private choreService: ChoreService) { }
+  public users$: Observable<User[]>;
+  public userNames: String[] = [];
+  public userIds: Number[] = [];
+
+  constructor(private formBuilder: FormBuilder, private choreService: ChoreService, private userService: UserService) {
+    this.users$ = this.userService.getAllUsers();
+    this.users$.subscribe((x) => {
+      let user: any
+      for (user in x) {
+        /*if (x[user].userName === assigned_to) {
+          console.log(assigned_to)
+          userId.push(x[user].userId);
+          console.log(userId)
+        }*/
+        this.userNames.push(x[user].userName)
+        this.userIds.push(x[user].userId)
+      }
+    });
+    console.log(this.userNames)
+    console.log(this.userIds)
+  }
+
 
   onSubmit(): void {
     let chore_info = this.createChoreForm.value;
     let chore_name = chore_info.chore_name!;
     let assigned_to = chore_info.assigned_to!;
+
+    // Retrieve userId given username
+    let x: any
+    let userIdKey = 0;
+    for (x in this.userNames) {
+      if (this.userNames[x] === assigned_to) {
+        userIdKey = x;
+      }
+    }
+
+    let userId = this.userIds[userIdKey];
+
     let due_date_str = chore_info.due_date!;
     let due_date = new Date(due_date_str);
     let repeat_for = chore_info.repeat_for!;
@@ -60,12 +95,11 @@ export class CreateChoreComponent {
       return;
     }
 
-
     let chore: Chore =
     {
       name: chore_name,
       createdBy: 'Jeff',
-      assignedTo: 1,
+      assignedTo: this.userIds[userIdKey],
       completionStatus: "in progress",
       accepted: false,
       choreId: 123,

@@ -16,7 +16,7 @@ export class ViewChoresComponent {
   public chores$: Observable<Chore[]>;
   public userChores$: Observable<Chore[]>;
   public displayChores: Chore[] = []
-  public userId: Number = 2
+  public userId: Number = 1
 
   constructor(private choreService: ChoreService, private userService: UserService, private router: Router) {
     this.chores$ = this.choreService.getAllChores();
